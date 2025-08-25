@@ -5,12 +5,19 @@ The **Shanghai** upgrade (also known as **Shapella** when paired with the **Cape
 **Noteworthy EIPs:**
 
 - **EIP-4895 – Beacon Chain Push Withdrawals**
+- - **Pre-EIP 4895 Problem:**
+After Ethereum's switch from **PoW** to **PoS**, one became a validator by staking 32 ETH. But the problem was that ETH staked was locked. Staked ETH  and rewards were stuck on the Beacon Chain. This posed a problem of liquidity, and also deterred new validators from coming onboard.
+- - **EIP-4895 Solution:**
+This EIP introduced a mechanism that let validators *push* their locked ETH and rewards from the Beacon Chain (Consensus Layer) to the main Ethereum blockchain (Execution Layer).   
+This EIP enables two kinds of withdrawals for validators: 
+- - - **Partial Withdrawal:** Validators can automatically withdraw any ETH balance they have above the 32 ETH minimum. This is for collecting staking rewards without unstaking the original 32 ETH stake.
+- - - **Full Withdrawal:** Validators can choose to exit their validator status and withdraw all their staked ETH.
+- - **Benefits:** Increased flexibilty for validators, improved liquidity, and made validation more attractive to a larger number of people thus securing the future of Ethereum.
 
-Introduces a "push" mechanism where validator withdrawals from the Beacon Chain are processed as operations in the execution layer. It cleanly integrates consensus-side events with EVM execution without requiring gas, simplifying logic and enabling testing.
+-------------------------------------------------------------------------------------------------------------------------------
 
 - **EIP-3651 – Warm COINBASE**
-
-Optimizes gas by pre-warming the COINBASE address at transaction start, drastically reducing gas cost for access—saving ~2,500 gas per access.
+- - **Pre-EIP 3651 Problem:**
 
 - **EIP-3855 – PUSH0 Instruction**
 
